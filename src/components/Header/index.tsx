@@ -18,13 +18,16 @@ const toggleState = <T,>(value: T, setter: Function, newValue: T) => {
 }
 
 const toggleTheme = () => {
-	if (localStorage.getItem('color-theme') === 'light') {
-		localStorage.setItem('color-theme', 'dark');
+	try {
+		if (localStorage.getItem('color-theme') === 'light') {
+			localStorage.setItem('color-theme', 'dark');
+		}
+		else {
+			localStorage.setItem('color-theme', 'light');
+		}
+		location.reload();
 	}
-	else {
-		localStorage.setItem('color-theme', 'light');
-	}
-	location.reload();
+	catch { }
 }
 
 export const Header = (): React.ReactElement => {
@@ -32,6 +35,8 @@ export const Header = (): React.ReactElement => {
 	const [whatsNewPopup, toggleWhatsNewPopup] = useModal();
 
 	const [headerClass, setHeaderClass] = useState('');
+	const [oppositeTheme] = useState(getOppositeTheme());
+
 	const settings = useContext(SettingsContext);
 
 	const toggleMenuOpened = () => {
@@ -65,7 +70,7 @@ export const Header = (): React.ReactElement => {
 						<Button
 							onClick={toggleTheme}
 							className={`observe ${styles.button} ${styles.iconOnly}`}
-							icon={<Icon name={`${getOppositeTheme()}_mode`} />}
+							icon={<Icon name={`${oppositeTheme}_mode`} />}
 							as='button'
 							appearance='Secondary'> </Button>
 					</Box>
