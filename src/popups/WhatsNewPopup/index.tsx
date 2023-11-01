@@ -1,5 +1,5 @@
 // import styles from './index.module.scss';
-// 'use client';
+'use client';
 
 import React from 'react';
 
@@ -32,26 +32,25 @@ export async function getStaticProps() {
 }
 
 export const WhatsNewPopup = (props: PopupProps): React.ReactElement => {
-	// // const { isLoading, isError, data } =
-	// 	// useQuery({ queryKey: ['changelog'], queryFn: getChangelog })
+	const { isLoading, isError, data } =
+		useQuery({ queryKey: ['changelog'], queryFn: getChangelog })
 
-	// if (isLoading) return <>Подождите...</>
-	// if (isError) return <>Ошибка</>
-	// if (!data) return <>Неизвестная ошибка</>
-	// return (
-	// 	<Popup bind={props.bind}>
-	// 		<PopupBody>
-	// 			<Box justify={Alignment.center}>
-	// 				<Title3>Что нового</Title3>
-	// 			</Box>
-	// 			<Box direction="column" dangerouslySetInnerHTML={{ __html: data.data[0].content.rendered }}></Box>
-	// 		</PopupBody>
-	// 		<PopupFooter>
-	// 			<Box justify={Alignment.end}>
-	// 				<Button onClick={() => props.togglePopup()} icon={<Icon name='cancel' />} appearance='Secondary'>Закрыть</Button>
-	// 			</Box>
-	// 		</PopupFooter>
-	// 	</Popup >
-	// );
-	return <></>
+	if (isLoading) return <>Подождите...</>
+	if (isError) return <>Ошибка</>
+	if (!data) return <>Неизвестная ошибка</>
+	return (
+		<Popup bind={props.bind}>
+			<PopupBody>
+				<Box justify={Alignment.center}>
+					<Title3>Что нового</Title3>
+				</Box>
+				<Box className='eval' direction="column" dangerouslySetInnerHTML={{ __html: data.data[0].content.rendered }}></Box>
+			</PopupBody>
+			<PopupFooter>
+				<Box justify={Alignment.end}>
+					<Button onClick={() => props.togglePopup()} icon={<Icon name='cancel' />} appearance='Secondary'>Закрыть</Button>
+				</Box>
+			</PopupFooter>
+		</Popup >
+	);
 };

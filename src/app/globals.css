@@ -13,6 +13,10 @@ html {
 
 }
 
+body {
+	padding-top: 96px;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -38,4 +42,31 @@ body {
 .container {
 	max-width: 1200px;
 	margin: 0 auto;
+}
+
+.eval ul {
+	display: flex;
+	flex-direction: column;
+	gap: .4em;
+}
+
+.eval li {
+	display: flex;
+	gap: 8px;
+}
+
+.eval li::before {
+	content: '·';
+	font-weight: 700;
+}
+
+::-webkit-scrollbar {
+	background-color: var(--backgroundColor);
+	border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #202020;
+	border: var(--backgroundColor) 3px solid;
+	border-radius: 20px;
 }

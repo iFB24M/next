@@ -55,10 +55,10 @@ export const Header = (): React.ReactElement => {
 						</></a>
 					</div>
 					<ul className={styles.list}>
-						<li className={`observe ${styles.item}`}><Button appearance='Link' href="/blog">Блог</Button></li>
-						<li className={`observe ${styles.item}`}><Button appearance='Link' href="/portfolio">Портфолио</Button></li>
-						<li className={`observe ${styles.item}`}><Button appearance='Link' href="/contact">Связаться</Button></li>
-						<li className={`observe ${styles.item}`}><Button appearance='Link' href="/pet">Пет-проекты</Button></li>
+						<li className={`observe ${styles.item}`}><Button as='a' appearance='Link' href="/blog">Блог</Button></li>
+						<li className={`observe ${styles.item}`}><Button as='a' appearance='Link' href="/portfolio">Портфолио</Button></li>
+						<li className={`observe ${styles.item}`}><Button as='a' appearance='Link' href="/contact">Связаться</Button></li>
+						<li className={`observe ${styles.item}`}><Button as='a' appearance='Link' href="/pet">Пет-проекты</Button></li>
 						<li className={`observe ${styles.item}`}><Button appearance='Link' onClick={toggleWhatsNewPopup}>Что нового</Button></li>
 					</ul>
 					<Box align={Alignment.end} justify={Alignment.end}>
